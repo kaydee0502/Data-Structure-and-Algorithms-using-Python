@@ -79,18 +79,29 @@ class Linklist:
         
         
 myll = Linklist()
-myll.delete(18732)
-myll.insert(0,15)
-myll.prepend(8)
-myll.prepend(10)
-myll.append(12)
-myll.append(100)
+for i in range(1,101):
+    myll.append(i)
 
 
 
 temp = myll.head
-while temp:
+
+while temp.next:
     print(temp.data,"-->",end = "")
     temp = temp.next
-print("None")
+temp.next = myll.head
+print(temp.data,"-->","None",end = "")
+temp = myll.head
+print()
+while temp.data != temp.next.data:
+    temp.next = temp.next.next
+    temp = temp.next
+    
+print("survived : ",temp.next.data)
+
+
+# while temp:
+#     print(temp.data,"-->",end = "")
+#     temp = temp.next
+# print("None")
 
