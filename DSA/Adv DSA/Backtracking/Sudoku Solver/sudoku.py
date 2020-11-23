@@ -8,8 +8,23 @@ Created on Tue Nov 17 14:20:23 2020
 import argparse
 from tkinter import Tk, Canvas, Frame, Button, BOTH, TOP, BOTTOM
 import time
+from os import system,name
 
-BOARDS = ['debug', 'n00b', 'l33t', 'error']  # Available sudoku boards
+
+
+
+
+def clear(): 
+  
+    # for windows 
+    if name == 'nt': 
+        _ = system('cls') 
+  
+    # for mac and linux(here, os.name is 'posix') 
+    else: 
+        _ = system('clear') 
+
+BOARDS = ['debug', 'n00b', 'l33t', 'error','on']  # Available sudoku boards
 MARGIN = 20  # Pixels around the board
 SIDE = 50  # Width of every board cell.
 WIDTH = HEIGHT = MARGIN * 2 + SIDE * 9  # Width and height of the whole board
@@ -55,6 +70,7 @@ class SudokuGame(object):
     def start(self):
         self.game_over = False
         self.puzzle = []
+        
         
         for i in range(9):
             self.puzzle.append([])
@@ -105,7 +121,7 @@ class SudokuGame(object):
         h= {}
         for i in list(block):
             if i in h and i != 0:
-                print(list(block),t)
+                #print(list(block),t)
                 return -1
             h[i] = 1
         
@@ -130,6 +146,12 @@ class SudokuGame(object):
                 for c in range(column * 3, (column + 1) * 3)
             ],'b'
         )
+    def checkg(self):
+        for r in range(9):
+            for c in range(9):
+                if self.puzzle[r][c] == 0:
+                    return False
+        return True
     
     
     
@@ -149,7 +171,7 @@ class SudokuUI(Frame):
         self.pack(fill=BOTH,expand=1)
         self.canvas = Canvas(self,width=WIDTH,height=HEIGHT)
         self.canvas.pack(fill=BOTH,side=TOP)
-        clear_button = Button(self,text='Clear answers',command = self.__clear_answers)
+        clear_button = Button(self,text='Start backtracking!(Solve)',command = self.__clear_answers)
         clear_button.pack(fill=BOTH, side = BOTTOM)
         
         self.__draw_grid()
@@ -266,27 +288,38 @@ class SudokuUI(Frame):
     def backtrack(self):
         
         for m in range(81):
-            print('back')
+           
             r = m//9
             c = m%9
+           
             if self.game.puzzle[r][c] == 0:
                 
                 for val in range(1,10):
                     if not val in self.game.puzzle[r]:
-                        if not val in  [self.game.puzzle[r][c] for row in range(9)]:
+                        if not val in  [self.game.puzzle[row][c] for row in range(9)]:
                             if not val in [
                                 self.game.puzzle[row][col]
                                 for row in range((r//3) * 3, (r//3 + 1) * 3)
                                 for col in range((c//3) * 3, (c//3 + 1) * 3)]:
                                     self.row,self.col = r,c
                                     self.game.puzzle[r][c] = val
-                                    self.__draw_cursor()
-                                    self.__draw_puzzle()
-                                    time.sleep(0)
-                                    if self.game.check() == 1:
-                                         self.__draw_victory()
+                                    #self.__draw_cursor()
+                                    
+                                    clear()
+                                    prin = [[self.game.puzzle[b][a] if self.game.puzzle[b][a] != 0 else " " for a in range(9)] for b in range(9)]
+                                    prin = [["\033[1m\033[92m"+str(prin[b][a])+"\033[0m" if self.game.start_puzzle[b][a] != 0 else str(prin[b][a]) for a in range(9)] for b in range(9)]
+                                    for o in range(9):
+                                        if o%3 == 0:
+                                            print("+-----+-----+-----+")
+                                        print("",*prin[o][:3],*prin[o][3:6],*prin[o][6:],"",sep="|")
+                                    print("+-----+-----+-----+")
+                                    time.sleep(0.04)
+                                    if self.game.checkg():
+                                         self.__draw_puzzle()
                                          return True
                                     else:
+                                        
+                                        
                                         if self.backtrack():
                                             return True
                 break                            

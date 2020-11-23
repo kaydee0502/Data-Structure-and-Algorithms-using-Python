@@ -119,7 +119,8 @@ def solveGrid(grid):
               grid[row][col]=value
               myPen.clear()
               drawGrid(grid) 
-              myPen.getscreen().update()            
+              myPen.getscreen().update()    
+              sleep(0.5)
               if checkGrid(grid):
                 print("Grid Complete and Checked")
                 return True
