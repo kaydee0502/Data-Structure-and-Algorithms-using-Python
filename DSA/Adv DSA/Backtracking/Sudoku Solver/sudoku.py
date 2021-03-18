@@ -313,7 +313,7 @@ class SudokuUI(Frame):
                                             print("+-----+-----+-----+")
                                         print("",*prin[o][:3],*prin[o][3:6],*prin[o][6:],"",sep="|")
                                     print("+-----+-----+-----+")
-                                    time.sleep(0.04)
+                                    time.sleep(0.02)
                                     if self.game.checkg():
                                          self.__draw_puzzle()
                                          return True
