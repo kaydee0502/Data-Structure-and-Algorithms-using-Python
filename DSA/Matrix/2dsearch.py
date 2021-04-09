@@ -136,3 +136,54 @@ if __name__ == '__main__':
         ob = Solution()
         print(ob.matSearch(mat, n, m, x))
 # } Driver Code Ends
+
+
+#GFG 2 traverse from top right
+
+class Solution:
+	def matSearch(self,mat, N, M, X):
+	    
+	    #print(mat)
+	    i=0
+	    j=M-1
+	    
+	    while i < N and j > -1:
+	        if mat[i][j] == X:
+	            return 1
+	            
+	        elif mat[i][j] > X:
+	            j-=1
+	       
+	        else:
+	            i+=1
+	            
+	    return 0
+	        
+	        
+	        
+# Leetcode 2 binary search
+
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        
+        if not matrix:
+            return False
+        
+        hi = (len(matrix)*len(matrix[0]))-1
+        m = len(matrix[0])
+        lo = 0
+        
+        
+        while hi >= lo:
+            mid = (hi+lo)//2
+            print(lo,mid,hi)
+            if matrix[mid//m][mid%m] == target:
+                return True
+            
+            elif matrix[mid//m][mid%m] < target:
+                lo = mid+1
+                
+            else:
+                hi = mid-1
+             
+        return False
