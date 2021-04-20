@@ -1,57 +1,27 @@
-N = int(input())
-
-arr = list(map(int,input().split()))
-
-q=int(input())
-zero = {}
+import math
+n = int(input())
 
 
-for i in range(q):
-    x,k = map(int,input().split())
-    dist = 0
-    x= x-1
-    
-    
-    start = x
-    
-    
-    while k > 0 and x < N:
-        
-        if x in zero:
-            if zero[x] == -1:
-                break
-            
-            else:
-                stop = zero[x]
-                dist += arr[stop]*()
-                
-                
-                pass
-        
-        
-        if k >= arr[x]:
-            dist += arr[x]*(x-start)
-            k-=arr[x]
-            arr[x] = 0
-            
-            
-            
-        else:
-            zero[start] = x
-            dist += k*(x-start)
-            arr[x] -= k
-            
-            
-        #print(k)
-        
-        x+=1
-    
-    if not zero[start]:
-        zero[start] = -1
-        
-        
-    print(dist)
-        
-        
-    
-    
+
+if n%2 == 0:
+    i = 2
+else:
+    i = 1
+s = 1
+res = []
+prod = 1
+ind = 0
+temp=[]
+totake = 0
+while s < n:
+    prod*=s
+    res.append(s)
+    if prod%n == 1:
+        #print(prod,temp)
+       
+        totake = ind
+    s+=i
+    ind+=1
+   
+print(len(res[:totake+1]))
+print(*res[:totake+1])
