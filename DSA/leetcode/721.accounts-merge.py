@@ -22,7 +22,7 @@ class Solution:
                 uniSet[x] = x
                 
             if uniSet[x] != x:
-                return find(uniSet[x])
+                uniSet[x] = find(uniSet[x])
             return uniSet[x]
         
         
