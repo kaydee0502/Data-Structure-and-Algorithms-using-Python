@@ -43,6 +43,6 @@ def kmp_table(pat):
 
 
 
-m = "abxabcabcaby"
-p = "abbcbbccaaaaaabcbbaccccaabbcbbccaa"
-print(kmp_table(p))
+m = "abyabyabcd"
+p = "abyabcd"
+print(kmp_table(m))
