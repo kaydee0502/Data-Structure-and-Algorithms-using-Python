@@ -26,6 +26,36 @@ class Solution:
        return self.prof
         # code here
 
+
+
+#sol 2
+class Solution2:
+   
+    
+    def ksUtil(self,W,wt,vl,n,i):
+        
+       
+        
+        if i >= n or W >= 0:
+            return 0
+        
+    
+        if wt[i] <= W:
+            
+            return max(vl[i]+self.ksUtil(W-wt[i],wt,vl,n,i+1), self.ksUtil(W,wt,vl,n,i+1))
+        
+        else:
+            return self.ksUtil(W,wt,vl,n,i+1)
+        
+    
+    #Function to return max value that can be put in knapsack of capacity W.
+    def knapSack(self,W, wt, val, n):
+       return self.ksUtil(W,wt,val,n,0)
+
+
+
+
+
 #{ 
 #  Driver Code Starts
 #Initial Template for Python 3
