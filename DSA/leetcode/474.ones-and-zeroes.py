@@ -7,35 +7,35 @@
 # @lc code=start
 class Solution:
     
-    def f(self,st):
-        o = 0
-        z = 0
-        for i in st:
-            if i =="0":
-                z+=1
-            else:
-                o+=1
-                
-        return o,z
+    def __init__(self):
+        self.dp = None
     
-    def r(self,s,m,n,strs):
-        if s == 0 or (m == 0 and n == 0):
-            return 0
-        
-        o,z = self.f(strs[s-1])
-        #print(o,z,strs[s-1])
-        
-        if z <= m and o <= n:
-            
-            return max(1+self.r(s-1,m-z,n-o,strs),self.r(s-1,m,n,strs))
-        else:
-            return self.r(s-1,m,n,strs)
-        
-    
+ 
     
     
     def findMaxForm(self, strs: List[str], m: int, n: int) -> int:
-        return self.r(len(strs),m,n,strs)
+        
+        self.dp = [[[0 for i in range(n+1)] for j in range(m+1)] for k in range(len(strs)+1)] 
+        
+        
+        for i in range(1,len(strs)+1):
+            o,z = self.f(strs[i-1])
+            for j in range(m+1):
+                for k in range(n+1):
+                    if j == k == 0:
+                        continue
+                    
+                    
+                    
+                    if z <= j and o <= k:
+                        self.dp[i][j][k] = max(1+self.dp[i-1][j-z][k-o],self.dp[i-1][j][k])
+                    else:
+                        self.dp[i][j][k] = self.dp[i-1][j][k]
+                        
+                    
+                
+        
+        return self.dp[-1][-1][-1]
         
         
         
