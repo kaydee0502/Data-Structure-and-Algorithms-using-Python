@@ -1,5 +1,8 @@
 class Solution:
     
+    def __init__(self):
+        self.dp = None
+    
     def ccutil(self,i,amt,coins):
         #print(i,amt)
         if amt == 0:
@@ -15,6 +18,10 @@ class Solution:
             return self.ccutil(i-1,amt,coins)
     
     def coinChange(self, coins: List[int], amount: int) -> int:
+        
+        
+      
+        
        a = self.ccutil(len(coins),amount,coins)
        if a == float("inf"):
            return -1
