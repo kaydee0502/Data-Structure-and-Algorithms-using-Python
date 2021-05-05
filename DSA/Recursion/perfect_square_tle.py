@@ -21,4 +21,3 @@ class Solution:
             i+=1
         #print(sqs)
         return self.cc(sqs,len(sqs),n)
-        
