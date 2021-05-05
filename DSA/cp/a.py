@@ -4,32 +4,22 @@ while t:
     
     
     n = int(input())
-    if n == 2:
-        print(-1)
-        t-=1
-        continue
+    axx = list(map(int,input().split()))
+    
+    d = {}
+    
+    c = 0
+    
+    for i in range(n):
+        diff = axx[i] - i
+        if diff in d:
+            c+=d[diff]
         
-    mat = [[0 for i in range(n)] for j in range(n)]
-    
-    c = 1
-    for i in range(n):
-        for j in range(n):
-            
-            if (i+j)%2 == 0:
-              
-                mat[i][j] = c
-                c+=1
-                
-    
-    for i in range(n):
-        for j in range(n):
-            
-            if mat[i][j] == 0:
-                
-                mat[i][j] = c
-                c+=1
-            
-    for i in mat:
-        print(*i)
+        if diff not in d:
+            d[diff] = 0
+        
+        d[diff] += 1   
+        
+    print(c)  
     
     t-=1
