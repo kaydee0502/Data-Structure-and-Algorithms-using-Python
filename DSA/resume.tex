@@ -1,0 +1,253 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
+\begin{center}
+    {\Huge \scshape Yug Gurnani} \\ \vspace{1pt}
+    \small \raisebox{-0.1\height} +91-7627086864 \textbar  \href{mailto:yug.gurnani091@gmail.com}{\raisebox{-0.2\height}\  \underline{yug.gurnani091@gmail.com}} \textbar 
+    \href{https://www.linkedin.com/in/yug-gurnani-2595121aa/}{\raisebox{-0.2\height}\ \underline{linkedin.com/in/yug-gurnani/}} \textbar
+    \href{https://github.com/sam0000-cmd}{\raisebox{-0.2\height}\ \underline{github.com/sam0000-cmd}}
+    \vspace{-8pt}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Jecrc University}{August 2019 -- Present}
+      {Bachelor of Computer Applications, Current aggregate of 9.0 CGPA}{Jaipur, Rajasthan}
+    \resumeSubheading
+      {Bright Future School}{2019}
+      {12th Standard}{80.50 \%}
+  \resumeSubHeadingListEnd
+
+% %------RELEVANT COURSEWORK-------
+% \section{Relevant Coursework}
+%     %\resumeSubHeadingListStart
+%         \begin{multicols}{4}
+%             \begin{itemize}[itemsep=-5pt, parsep=3pt]
+%                 \item\small Data Structures
+%                 \item Software Methodology
+%                 \item Algorithms Analysis
+%                 \item Database Management
+%                 \item Artificial Intelligence
+%                 \item Internet Technology
+%                 \item Systems Programming
+%                 \item Computer Architecture
+%             \end{itemize}
+%         \end{multicols}
+%         \vspace*{2.0\multicolsep}
+%     %\resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Student Mentor}{Feb 2021 -- Present}
+      {Devsnest}{Jaipur, Rajasthan}
+      \resumeItemListStart
+        \resumeItem{Worked on solving doubts of the students preparing for the Technical Interviews}
+        \resumeItem{Organised a one-to-one coding contest and created algorithmic problems for that.}
+        
+        
+      \resumeItemListEnd
+    
+  \resumeSubHeadingListEnd
+\vspace{-16pt}
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \vspace{-5pt}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Play with Trump} $|$ \emph{Python, Django, Neural Networks, JavaScript, OpenCV}}{February 2021}
+          \resumeItemListStart
+            \resumeItem{Created an interesting way to play the old school "Rock, Paper and Scissors" game in a modern way with a twist!.}
+            \resumeItem{So you ask what we do in this ? We have created an interactive web application that contains an animated character named 'Trump', which is a default player which will be playing against the user and will react on the basis of match results.}
+            
+          \resumeItemListEnd
+          \vspace{-13pt}
+      \resumeProjectHeading
+          {\textbf{Sorting Visualizer} $|$ \emph{React, JavaScript, HTML/CSS}}{January 2021}
+          \resumeItemListStart
+            \resumeItem{Tasked to Make a Visualizer to visualize different type of sorting Algorithms.}
+            \resumeItem{It Visualizes Merge sort, Heap sort, selection sort and Bubble sort.}
+          \resumeItemListEnd 
+          \vspace{-13pt}
+          \resumeProjectHeading
+          {\textbf{Mask Detection} $|$ \emph{Python, OpenCV, Neural Networks}}{October 2020}
+          \resumeItemListStart
+            \resumeItem{Tasked to detect a person is wearing a mask or not
+in a Live video.}
+            \resumeItem{In this, I used OpenCV library to capture and process images and keras library to apply Convolutional neural network.}
+            \resumeItem{Used MobileNetV2 in this for better accuracy and fast processing.}
+          \resumeItemListEnd
+          \vspace{-13pt}
+          \resumeProjectHeading
+          {\textbf{Hall of Fame vidz} $|$ \emph{Python, Django, HTML/CSS}}{February 2021}
+          \resumeItemListStart
+            \resumeItem{Tasked to Make a Website In which user can add their Top 10 Videos i.e Their Hall of Fame videos from Youtube.}
+            \resumeItem{In this, I used Django for the Backend and Bootstrap for the Frontend.}
+            \resumeItem{It works with Youtube's API for the adding, searching and get the Videos running.}
+            \resumeItem{I used AJAX for a Better user experience.}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+\vspace{-15pt}
+
+%-----------Achievements---------------
+\section{Achievements}
+    
+            \resumeItemListStart
+                \resumeItem{Under Top 500 on Global Leaderboard on Geeks on Geeks}
+                \resumeItem{3 star on Codechef (Max 1788).}
+                \resumeItem{6 star on Problem Solving on Hackerrank.}
+                \resumeItem{Top performer among 1000 students of Jecrc University in codesquash 1.0 (Organised By JECRC).}
+            \resumeItemListEnd
+%
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Python, C++, HTML/CSS, JavaScript, SQL} \\
+     \textbf{Developer Tools}{: VS Code, Google Cloud Platform} \\
+     \textbf{Technologies/Frameworks}{: React, GitHub, Django, Neural Networks} \\
+    }}
+ \end{itemize}
+ \vspace{-16pt}
+ 
+ %-----------Profile-------------
+ \section{Profile}
+ \resumeItemListStart
+    \resumeItem{\href{https://www.codechef.com/users/sam_cmd}{\raisebox{-0.2\height}\  \underline{CodeChef}}}
+    \resumeItem{\href{https://codeforces.com/profile/sam_cmd_}{\raisebox{-0.2\height}\  \underline{Codeforces}}}
+    \resumeItem{\href{https://auth.geeksforgeeks.org/user/yuggurnani091/practice/}{\raisebox{-0.2\height}\  \underline{Geeks For Geeks}}}
+    \resumeItem{\href{https://www.hackerrank.com/yug_gurnani091?hr_r=1}{\raisebox{-0.2\height}\  \underline{Hackerrank}}}
+\resumeItemListEnd
+
+
+
+
+\end{document}
