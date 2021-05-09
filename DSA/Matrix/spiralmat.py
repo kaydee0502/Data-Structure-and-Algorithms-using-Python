@@ -118,3 +118,98 @@ class Solution:
         return self.a[:len(matrix)*len(matrix[0])]
         
         
+# method 2 (better)
+
+class Solution:
+    def __init__(self):
+        self.s = []
+
+
+    def dfs(self,m,n,i,j,mat,vis):
+
+        si,sj = i,j
+        #print(*vis,sep="\n")
+        #print("ok",i,j,m,n)
+        if i<0 or j<0 or i>=n or j>=m:
+            return
+
+        if vis[i][j] == 1:
+            return
+
+      
+        
+        while j < m and vis[i][j] == 0:
+            vis[i][j] = 1
+            self.s.append(mat[i][j])
+            j+=1
+
+        j-=1
+        i+=1
+        
+        #print(i,j)
+        
+      
+
+        while i < n and vis[i][j] == 0:
+            vis[i][j] = 1
+            self.s.append(mat[i][j])
+            i+=1
+
+        i-=1
+        j-=1
+
+        
+        #print(i,j)
+        
+    
+        while j >= 0 and vis[i][j] == 0:
+            vis[i][j] = 1
+            self.s.append(mat[i][j])
+            j-=1
+
+        j+=1
+        i-=1
+        
+        #print(i,j)
+       
+
+        while i >= 0 and vis[i][j] == 0:
+
+            vis[i][j] = 1
+            self.s.append(mat[i][j])
+            i-=1
+        i+=1
+        j+=1
+       
+        #print(i,j)
+
+        
+
+        self.dfs(m,n,si+1,sj+1,mat,vis)
+
+        
+        
+
+
+        
+
+
+
+
+
+    def solve(self, matrix):
+        if not matrix:
+            return []
+        if not matrix[0]:
+            return []
+        n = len(matrix)
+        m = len(matrix[0])
+        vis = [[0 for i in range(m)] for j in range(n)]
+
+        i = 0
+        j = 0
+        self.dfs(m,n,i,j,matrix,vis)
+        return self.s
+
+
+        
