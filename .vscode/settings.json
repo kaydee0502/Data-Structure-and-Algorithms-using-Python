@@ -1,3 +1,7 @@
 {
-    "codeforcesBot.compile.command": "python"
+    "codeforcesBot.compile.command": "python",
+    "python.linting.pylintEnabled": false,
+    "python.linting.banditEnabled": false,
+    "python.linting.enabled": false,
+    "python.linting.flake8Enabled": true
 }
