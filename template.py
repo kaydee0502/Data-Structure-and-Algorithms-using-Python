@@ -77,18 +77,6 @@ input = lambda: sys.stdin.readline().rstrip("\r\n")
 # endregion
 
 
-mat = []
+n = int(input())
 
-for i in range(5):
-    mat.append(list(map(int,input().split())))
-    
-ol = None
-
-for i in range(5):
-    for j in range(5):
-        if mat[i][j] == 1:
-            ol = [i,j]
-            
-            break
-        
-print(abs(2-ol[0])+abs(2-ol[1]))
+print("YES" if n!=2 and n%2 == 0 else "NO")
