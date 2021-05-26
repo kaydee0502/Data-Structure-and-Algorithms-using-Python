@@ -78,5 +78,33 @@ input = lambda: sys.stdin.readline().rstrip("\r\n")
 
 
 n = int(input())
+arr = []
+for i in range(n):
+    arr.append(list(map(int,input().split())))
 
-print("YES" if n!=2 and n%2 == 0 else "NO")
+ans = 0 
+
+def ways(i,j):
+    global ans
+       
+    if i<0 or i>=n or j<0 or j>=n or arr[i][j] == 1:
+        return 
+    if i==n-1 and j==n-1:
+        
+        ans+=1
+        return
+    
+    arr[i][j] = 1
+    
+    ways(i,j-1)
+    ways(i,j+1)
+    ways(i-1,j)
+    ways(i+1,j)
+    
+    
+    arr[i][j]=0
+    return 
+  
+
+ways(0,0)    
+print(ans)
