@@ -18,6 +18,7 @@ class FastIO(io.IOBase):
     newlines = 0
 
     def __init__(self, file):
+        
         self._fd = file.fileno()
         self.buffer = io.BytesIO()
         self.writable = "x" in file.mode or "r" not in file.mode
@@ -76,35 +77,33 @@ sys.stdin, sys.stdout = IOWrapper(sys.stdin), IOWrapper(sys.stdout)
 input = lambda: sys.stdin.readline().rstrip("\r\n")
 # endregion
 
-
+import functools
+import sys
+sys.setrecursionlimit(10**7)
 n = int(input())
-arr = []
-for i in range(n):
-    arr.append(list(map(int,input().split())))
+arr = list(map(int,input().split()))
+ans = 0
 
-ans = 0 
 
-def ways(i,j):
-    global ans
-       
-    if i<0 or i>=n or j<0 or j>=n or arr[i][j] == 1:
-        return 
-    if i==n-1 and j==n-1:
-        
-        ans+=1
-        return
+@functools.lru_cache(None)
+def rec(n,curr,count):
+    global ans,arr
+    ans = max(ans,count)
+    if n == len(arr):
+        return count
     
-    arr[i][j] = 1
-    
-    ways(i,j-1)
-    ways(i,j+1)
-    ways(i-1,j)
-    ways(i+1,j)
-    
-    
-    arr[i][j]=0
-    return 
-  
+    if curr + arr[n] >= 0:
+        rec(n+1,curr+arr[n],count+1) or rec(n+1,curr,count)
+    else:
+        rec(n+1,curr,count)
 
-ways(0,0)    
-print(ans)
+
+# dp = [0 for i in range(n)] 
+
+# for i in range(n):
+#     curr = 0
+#     for j in range(n):
+#         if arr[j] + curr >= 0:
+#             dp[j] = max(dp[j],arr[j]+curr)
+#         else:
+#             dp[j] = max()
