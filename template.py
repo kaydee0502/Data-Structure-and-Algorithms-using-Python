@@ -77,33 +77,49 @@ sys.stdin, sys.stdout = IOWrapper(sys.stdin), IOWrapper(sys.stdout)
 input = lambda: sys.stdin.readline().rstrip("\r\n")
 # endregion
 
-import functools
-import sys
-sys.setrecursionlimit(10**7)
-n = int(input())
-arr = list(map(int,input().split()))
-ans = 0
+t = int(input())
 
-
-@functools.lru_cache(None)
-def rec(n,curr,count):
-    global ans,arr
-    ans = max(ans,count)
-    if n == len(arr):
-        return count
+while t:
+    n,k = map(int,input().split())
+    s = input()
+    qs = list(map(int,input().split()))
     
-    if curr + arr[n] >= 0:
-        rec(n+1,curr+arr[n],count+1) or rec(n+1,curr,count)
-    else:
-        rec(n+1,curr,count)
-
-
-# dp = [0 for i in range(n)] 
-
-# for i in range(n):
-#     curr = 0
-#     for j in range(n):
-#         if arr[j] + curr >= 0:
-#             dp[j] = max(dp[j],arr[j]+curr)
-#         else:
-#             dp[j] = max()
+    
+    pre = []
+    
+    for i in range(len(s)-1):
+        if s[i] == s[i+1]:
+            pre.append(2)
+        else:
+            pre.append(1)
+            
+    csum = sum(pre)
+    s= list(s)
+    
+    for i in qs:
+        i = i-1
+        nex = i
+        prev = i-1
+        
+        s[i] = "0" if s[i] == "1" else "1"
+        #print(s,nex,prev)
+        if i > 0:
+            if s[i] == s[i-1]:
+                csum+=1
+            else:
+                csum-=1
+                
+        if i < n-1:
+            if s[i] == s[i+1]:
+                csum+=1
+            else:
+                csum-=1
+                
+        print(csum)
+            
+        
+            
+        
+    
+    
+    t-=1
