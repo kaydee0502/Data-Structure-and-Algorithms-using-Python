@@ -79,44 +79,23 @@ input = lambda: sys.stdin.readline().rstrip("\r\n")
 
 t = int(input())
 
+def kadane(arr):
+    local_max = global_max = arr[0]
+    for i in range(1,len(arr)):
+        local_max = max(arr[i],local_max + arr[i])
+        if local_max > global_max:
+            global_max = local_max
+    return max(global_max,local_max)
+
+
 while t:
     n,k = map(int,input().split())
-    s = input()
+    
     qs = list(map(int,input().split()))
+    print(kadane(qs))
     
     
-    pre = []
     
-    for i in range(len(s)-1):
-        if s[i] == s[i+1]:
-            pre.append(2)
-        else:
-            pre.append(1)
-            
-    csum = sum(pre)
-    s= list(s)
-    
-    for i in qs:
-        i = i-1
-        nex = i
-        prev = i-1
-        
-        s[i] = "0" if s[i] == "1" else "1"
-        #print(s,nex,prev)
-        if i > 0:
-            if s[i] == s[i-1]:
-                csum+=1
-            else:
-                csum-=1
-                
-        if i < n-1:
-            if s[i] == s[i+1]:
-                csum+=1
-            else:
-                csum-=1
-                
-        print(csum)
-            
         
             
         
