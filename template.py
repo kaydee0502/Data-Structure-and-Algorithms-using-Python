@@ -77,28 +77,50 @@ sys.stdin, sys.stdout = IOWrapper(sys.stdin), IOWrapper(sys.stdout)
 input = lambda: sys.stdin.readline().rstrip("\r\n")
 # endregion
 
+def sieve(n):
+    sieve = [True for i in range(n+1)]
+    p = 2
+    while (p * p <= n):
+        if (sieve[p] == True):
+            for i in range(p * p, n+1, p):
+                sieve[i] = False
+        p += 1
+    return [i for i in range(len(sieve)) if sieve[i]]
+
 t = int(input())
-
-def kadane(arr):
-    local_max = global_max = arr[0]
-    for i in range(1,len(arr)):
-        local_max = max(arr[i],local_max + arr[i])
-        if local_max > global_max:
-            global_max = local_max
-    return max(global_max,local_max)
-
-
 while t:
-    n,k = map(int,input().split())
     
-    qs = list(map(int,input().split()))
-    print(kadane(qs))
-    
-    
-    
-        
+    n = int(input())
+    narr = [i for i in range(2,n+1)]
+    ods = set()
+    for i in narr:
+        if i%2 !=0:
+            ods.add(i)
             
-        
+    c = len(ods)+1
     
+    skip = set()
+    for i in range(3,n,2):
+        if i in ods:
+            j = 2
+            
+            while i*j <= n:
+                pair = False
+                if i*j in ods:
+                    ods.discard(i*j)
+                    pair = True
+                    c-=1
+                j+=1
+                
+            if pair:
+                ods.discard(i)
+            
+    
+            
+            
+            
+  
+    print(ods)
+    print(c)
     
     t-=1
