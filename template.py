@@ -77,50 +77,44 @@ sys.stdin, sys.stdout = IOWrapper(sys.stdin), IOWrapper(sys.stdout)
 input = lambda: sys.stdin.readline().rstrip("\r\n")
 # endregion
 
-def sieve(n):
-    sieve = [True for i in range(n+1)]
-    p = 2
-    while (p * p <= n):
-        if (sieve[p] == True):
-            for i in range(p * p, n+1, p):
-                sieve[i] = False
-        p += 1
-    return [i for i in range(len(sieve)) if sieve[i]]
-
 t = int(input())
+
+
+def add(s):
+    s = list(s)
+    
+    i = len(s)-1
+    
+    while 1:
+        temp = s[i]
+        if ord(temp) == 122:
+            s[i] = "a"
+            if i == 0:
+                return "a"+ "".join(s)
+            i-=1
+            continue
+            
+        temp = chr(ord(temp)+1)
+        s[i] = temp
+        break
+    return "".join(s)
+        
+
+
 while t:
-    
     n = int(input())
-    narr = [i for i in range(2,n+1)]
-    ods = set()
-    for i in narr:
-        if i%2 !=0:
-            ods.add(i)
-            
-    c = len(ods)+1
+    s = input()
     
-    skip = set()
-    for i in range(3,n,2):
-        if i in ods:
-            j = 2
-            
-            while i*j <= n:
-                pair = False
-                if i*j in ods:
-                    ods.discard(i*j)
-                    pair = True
-                    c-=1
-                j+=1
-                
-            if pair:
-                ods.discard(i)
-            
+    isi = 'a'
     
-            
-            
-            
-  
-    print(ods)
-    print(c)
+    while len(isi) <= len(s):
+        if not isi in s:
+            print(isi)
+            break
+        
+        isi = add(isi)
+        
     
+    
+
     t-=1
