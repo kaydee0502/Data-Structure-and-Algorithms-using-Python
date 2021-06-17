@@ -77,44 +77,57 @@ sys.stdin, sys.stdout = IOWrapper(sys.stdin), IOWrapper(sys.stdout)
 input = lambda: sys.stdin.readline().rstrip("\r\n")
 # endregion
 
+
+import copy
+def swap(s):
+    return "W" if s == "R" else "R"
+    
+    
+def prep(mat,s,n,m):
+    for i in range(n):
+        for j in range(m):
+            if i > 0 and j == 0:
+                s = swap(mat[i-1][0])
+            else:
+                s = swap(s)
+                
+            if mat[i][j] != ".":
+                if mat[i][j] != s:
+                    return False
+            else:
+                mat[i][j] = s
+                
+            
+    return True
+            
+            
+
 t = int(input())
 
 
-def add(s):
-    s = list(s)
-    
-    i = len(s)-1
-    
-    while 1:
-        temp = s[i]
-        if ord(temp) == 122:
-            s[i] = "a"
-            if i == 0:
-                return "a"+ "".join(s)
-            i-=1
-            continue
-            
-        temp = chr(ord(temp)+1)
-        s[i] = temp
-        break
-    return "".join(s)
-        
-
-
 while t:
-    n = int(input())
-    s = input()
-    
-    isi = 'a'
-    
-    while len(isi) <= len(s):
-        if not isi in s:
-            print(isi)
-            break
+    n,m = map(int, input().split())
+    mat = []
+    for i in range(n):
+        mat.append(list(input()))
         
-        isi = add(isi)
-        
+    mat1 = copy.deepcopy(mat)
+    a = prep(mat1,"W",n,m)
+    mat2 = copy.deepcopy(mat)
+    b = prep(mat2,"R",n,m)
+    #print(mat,mat1,mat2)
+    if a:
+        print("YES")
+        for i in mat1:
+            print("".join(i))
+            
+    elif b:
+        print("YES")
+        for i in mat2:
+            print("".join(i))
+    else:
+        print("NO")
     
-    
+
 
     t-=1
