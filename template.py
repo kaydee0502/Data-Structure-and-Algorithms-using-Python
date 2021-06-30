@@ -78,56 +78,813 @@ input = lambda: sys.stdin.readline().rstrip("\r\n")
 # endregion
 
 
-import copy
-def swap(s):
-    return "W" if s == "R" else "R"
+s = """
+<div class="r" id="mb"></div>
     
+        <div class="r" id="mb"></div>
     
-def prep(mat,s,n,m):
-    for i in range(n):
-        for j in range(m):
-            if i > 0 and j == 0:
-                s = swap(mat[i-1][0])
-            else:
-                s = swap(s)
-                
-            if mat[i][j] != ".":
-                if mat[i][j] != s:
-                    return False
-            else:
-                mat[i][j] = s
-                
-            
-    return True
-            
-            
-
-t = int(input())
-
-
-while t:
-    n,m = map(int, input().split())
-    mat = []
-    for i in range(n):
-        mat.append(list(input()))
-        
-    mat1 = copy.deepcopy(mat)
-    a = prep(mat1,"W",n,m)
-    mat2 = copy.deepcopy(mat)
-    b = prep(mat2,"R",n,m)
-    #print(mat,mat1,mat2)
-    if a:
-        print("YES")
-        for i in mat1:
-            print("".join(i))
-            
-    elif b:
-        print("YES")
-        for i in mat2:
-            print("".join(i))
-    else:
-        print("NO")
+        <div class="r" id="mb"></div>
     
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="w" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+    
+        <div class="r" id="mb"></div>
+"""
 
-
-    t-=1
+inds = {"r":[], "w":[]}
+ls = s.split(r"\n")
+c = 0
+for i in range(len(s)):
+    if s[i] in ["w","r"]:
+        inds[s[i]].append(c)
+        c+=1
+print(inds["w"])
